@@ -2,16 +2,18 @@
 // ливым называют такое шестизначное число, что сумма его первых трех цифр
 // равна сумме его последних трех цифр.)
 
-void main() {
-  int number = 123456;
+import 'dart:io';
 
-  int sumFirstThreeDigits = (number ~/ 100000) +
+void main() {
+  int number = int.parse(stdin.readLineSync()!);
+
+  int firstThreeDigits = (number ~/ 100000) +
       ((number % 100000) ~/ 10000) +
       ((number % 10000) ~/ 1000);
-  int sumLastThreeDigits =
+  int lastThreeDigits =
       ((number % 1000) ~/ 100) + ((number % 100) ~/ 10) + (number % 10);
 
-  bool isLucky = sumFirstThreeDigits == sumLastThreeDigits;
+  bool isLucky = firstThreeDigits == lastThreeDigits;
 
   print(isLucky);
 }
